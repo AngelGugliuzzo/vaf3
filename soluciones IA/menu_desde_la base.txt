@@ -1,0 +1,141 @@
+Perfecto 👏, vamos paso a paso.
+Te voy a mostrar **cómo leer los items de tu tabla `menu` desde MySQL**, y **pintarlos automáticamente en un menú con Bootstrap**, sin importar si vienen en arrays anidados.
+
+---
+
+### 💾 1. Estructura de tu tabla (ya correcta)
+
+```sql
+CREATE TABLE menu (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    items VARCHAR(255),
+    PRIMARY KEY (id)
+);
+
+INSERT INTO menu (id, items) VALUES
+(1,'INICIO'),
+(2,'PELICULAS'),
+(3,'PERSONAJES'),
+(4,'VEHICULOS'),
+(5,'LINEAS TEMPORALES'),
+(6,'CREDITOS');
+```
+
+---
+
+### ⚙️ 2. Conexión a la base de datos (db.php)
+
+Crea un archivo para la conexión:
+
+```php
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "tu_base"; // cambia por el nombre real de tu base
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+?>
+```
+
+---
+
+### 🧠 3. Código PHP + Bootstrap para mostrar el menú
+
+Crea un archivo `index.php` con este contenido:
+
+```php
+<?php
+include("db.php");
+
+// Consultar los ítems del menú
+$sql = "SELECT * FROM menu ORDER BY id ASC";
+$result = $conn->query($sql);
+
+// Crear un array limpio de ítems
+$menu_items = [];
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $menu_items[] = $row['items']; // solo guardamos el nombre del ítem
+    }
+}
+
+// Si querés ver la estructura:
+// echo "<pre>"; var_dump($menu_items); echo "</pre>";
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú dinámico</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Mi Sitio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <?php foreach ($menu_items as $item): ?>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><?= htmlspecialchars($item) ?></a>
+            </li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+```
+
+---
+
+### 🧩 Explicación:
+
+* `$menu_items[] = $row['items'];`
+  ✅ Limpia el array para tener algo como
+
+  ```php
+  ["INICIO", "PELICULAS", "PERSONAJES", "VEHICULOS", "LINEAS TEMPORALES", "CREDITOS"]
+  ```
+
+  en vez de un array anidado como `[[ 'id'=>1, 'items'=>'INICIO' ], ...]`
+
+* El `foreach` de PHP recorre cada valor y lo imprime dentro de un `<li>` de Bootstrap.
+
+* `htmlspecialchars()` es buena práctica para evitar inyección de HTML.
+
+---
+
+### 🎨 Resultado:
+
+Tendrás un menú **oscuro de Bootstrap**, con los items:
+
+```
+INICIO | PELICULAS | PERSONAJES | VEHICULOS | LINEAS TEMPORALES | CREDITOS
+```
+
+todos cargados **desde tu base de datos**. 🚀
+
+---
+
+¿Querés que cada ítem lleve a una página distinta (por ejemplo `peliculas.php`, `personajes.php`, etc.)?
+Puedo mostrarte cómo armar los `href` dinámicos según el texto del menú. ¿Querés que lo haga?

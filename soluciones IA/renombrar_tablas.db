@@ -1,0 +1,31 @@
+isión general creada por IA
+Sí, se puede cambiar el nombre de las tablas en MySQL sin alterar su contenido utilizando los comandos RENAME TABLE o ALTER TABLE ... RENAME TO. Ambas opciones permiten modificar el nombre de una tabla existente por uno nuevo, y las operaciones de renombre se ejecutan sin afectar los datos almacenados en ella. 
+Usando RENAME TABLE
+Este es el método más directo para renombrar una tabla. Sintaxis. 
+Código
+
+    RENAME TABLE nombre_tabla_antiguo TO nombre_tabla_nuevo;
+Ejemplo.
+Para cambiar el nombre de la tabla maestros a docentes, usarías:
+Código
+
+    RENAME TABLE maestros TO docentes;
+Cambiar varias tablas a la vez.
+RENAME TABLE también puede usarse para renombrar varias tablas en una sola declaración: 
+Código
+
+    RENAME TABLE tabla_vieja_1 TO tabla_nueva_1, tabla_vieja_2 TO tabla_nueva_2;
+Usando ALTER TABLE ... RENAME TO
+ALTER TABLE se utiliza generalmente para cambiar la estructura de una tabla, pero también incluye la opción de cambiar el nombre. Sintaxis. 
+Código
+
+    ALTER TABLE nombre_tabla_antiguo RENAME TO nombre_tabla_nuevo;
+Ejemplo.
+Para renombrar la tabla productos a items, el comando sería:
+Código
+
+    ALTER TABLE productos RENAME TO items;
+Consideraciones importantes
+Permisos: Se requieren los permisos adecuados para poder cambiar el nombre de las tablas. 
+Tablas del sistema: Evita renombrar tablas del sistema MySQL, ya que esto puede causar inestabilidad y corrupción de datos. 
+Claves externas: En la mayoría de los casos, MySQL actualiza automáticamente los nombres de las restricciones de clave externa para que coincidan con el nuevo nombre de la tabla. Sin embargo, si hay un conflicto de nombres, la instrucción puede fallar y deberás eliminar y volver a crear las claves externas manualmente. 

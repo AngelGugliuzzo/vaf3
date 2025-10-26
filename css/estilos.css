@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+ 
+}
+
+/*#58A0C8 (Azul) Header*/
+
+body {
+  font-family: "Krona One", sans-serif;
+ 
+}
+
+h1,h2,h3,h4,h5,h6 {
+ font-family: "Iceland", sans-serif;
+ color:#FFFFFF   ;
+ 
+}
+
+ 
+nav a {
+  font-family: "Iceland", sans-serif;
+}
+
+footer { 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #FF894F   ;
+    
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.redes a i {
+  font-size: 40px;
+  color: #fff;
+}
+
+/*header{
+  background-color: #58A0C8;}   /*#58A0C8 (Azul) Header*/
