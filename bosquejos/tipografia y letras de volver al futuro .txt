@@ -1,0 +1,4 @@
+#58A0C8 (Azul) Header, Tipografía ICELAND
+#000000 (Negro) Cuerpo , Tipografía KRONA ONE
+#FF894F (Naranja) Footer
+#FFFFFF (Blanco) TIPOGRAFIA

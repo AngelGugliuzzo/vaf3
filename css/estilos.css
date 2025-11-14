@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+ 
+}
+
+/*#58A0C8 (Azul) Header*/
+
+body {
+  font-family: "Krona One", sans-serif;
+ 
+}
+
+h1,h2,h3,h4,h5,h6 {
+ font-family: "Iceland", sans-serif;
+ color:#FFFFFF   ;
+ 
+}
+
+ 
+nav a {
+  font-family: "Iceland", sans-serif;
+}
+
+footer { 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #FF894F   ;
+    
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.redes a i {
+  font-size: 40px;
+  color: #fff;
+}
+
+/*header{
+  background-color: #58A0C8;}   /*#58A0C8 (Azul) Header*/
+
+
+  /* Efecto de iluminación para los enlaces del menú */
+.navbar-nav .nav-link {
+    color: #fff; /* Color base blanco */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por encima */
+.navbar-nav .nav-link:hover {
+    color: #FFD700; /* Cambia el color de la fuente cuando pasa el mouse (puedes elegir otro color) */
+    text-shadow: 0px 0px 10px rgba(255, 215, 0, 1), 0px 0px 20px rgba(255, 215, 0, 1); /* Ilumina el texto */
+}
+
+
+/*.container-foto.img:hover {
+      background-color:red;
+  }
+
+  /*nav a:hover {
+    color: red;
+}
+ .container-flex .foto-central-flex :hover {
+      background-color:red;
+  }   */
+
+  /*
+  Archivo: css/estilos.css
+*/
+
+/* Estilo por defecto para la imagen y su contenedor */
+.col-4 a img {
+    /* Aseguramos que la imagen no tenga un borde predefinido */
+    border: 2px solid transparent; 
+    /* Transición suave para el efecto hover */
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+/* Efecto al pasar el mouse (hover) */
+/* El selector apunta al enlace (<a>) dentro de la columna (.col-4) */
+.col-4 a:hover img {
+    /* box-shadow: horizontal vertical blur spread color; */
+    /* Crea un resplandor amarillo alrededor de la imagen */
+    box-shadow: 0 0 0 3px #ffc107; /* 3px (3mm aprox) de color amarillo de Bootstrap (#ffc107) */
+    /* Puedes usar un borde sólido si lo prefieres, pero box-shadow es más sutil */
+    /* border: 2px solid #ffc107; */
+}
+
+ .featurette  img {
+    /* Inicializa un borde transparente */
+    border: 2px solid transparent; 
+    /* Aplica una transición para el efecto box-shadow */
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+/* Efecto al pasar el mouse (hover) sobre el enlace (<a>) que contiene la imagen
+*/
+.featurette  a:hover img {
+    /* box-shadow: horizontal vertical blur spread color; */
+    /* Crea un resplandor amarillo de 3px alrededor de la imagen */
+    box-shadow: 0 0 0 3px #ffc107; 
+    /* #ffc107 es el color amarillo de 'warning' de Bootstrap */
+}
+
+.col-4 a img {
+
+    border: 2px solid transparent; 
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+.col-4 a:hover img {
+    box-shadow: 0 0 0 3px #ffc107; 
+ 
+}
+
+ .col-md-6 a img {
+  border: 2px solid transparent; 
+    transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+ }
+
+ .col-md-6 a:hover img {
+    box-shadow: 0 0 0 3px #ffc107; 
+ 
+}
+    
